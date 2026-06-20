@@ -1,0 +1,53 @@
+import {
+  LayoutDashboard,
+  Users,
+  Contact,
+  Building2,
+  Handshake,
+  CheckSquare,
+  Settings,
+} from "lucide-react";
+
+export const navigation = [
+  {
+    title: "Dashboard",
+    href: "/",
+    icon: LayoutDashboard,
+  },
+
+  {
+    title: "Leads",
+    href: "/leads",
+    icon: Users,
+  },
+
+  {
+    title: "Contacts",
+    href: "/contacts",
+    icon: Contact,
+  },
+
+  {
+    title: "Companies",
+    href: "/companies",
+    icon: Building2,
+  },
+
+  {
+    title: "Deals",
+    href: "/deals",
+    icon: Handshake,
+  },
+
+  {
+    title: "Tasks",
+    href: "/tasks",
+    icon: CheckSquare,
+  },
+
+  {
+    title: "Settings",
+    href: "/settings",
+    icon: Settings,
+  },
+];
