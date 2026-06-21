@@ -9,6 +9,7 @@ interface Props {
 
 export default function LeadsTable({
   leads,
+
 }: Props) {
   return (
     <div className="overflow-x-auto rounded-lg border">
@@ -39,65 +40,47 @@ export default function LeadsTable({
 
           </tr>
         </thead>
-
         <tbody>
+          {leads.map((lead) => {
+            console.log(lead);
 
-          {leads.map((lead) => (
-            <tr
-              key={lead._id}
-              className="border-b"
-            >
-              <td className="p-3">
-                {lead.firstName}{" "}
-                {lead.lastName}
-              </td>
+            return (
+              <tr
+                key={lead._id}
+                className="border-b"
+              >
+                <td className="p-3">
+                  {lead.firstName} {lead.lastName}
+                </td>
 
-              <td className="p-3">
-                {lead.email}
-              </td>
+                <td className="p-3">
+                  {lead.email}
+                </td>
 
-              <td className="p-3">
-                {lead.company}
-              </td>
+                <td className="p-3">
+                  {lead.company}
+                </td>
 
-              <td className="p-3">
-                {lead.status}
-              </td>
+                <td className="p-3">
+                  {lead.status}
+                </td>
 
-              <td className="p-3">
+                <td className="p-3">
+                  <LeadActions leadId={lead._id} />
+                </td>
 
-                <LeadActions
-                  leadId={lead._id}
-                />
-
-              </td>
-
-              <td className="p-3">
-
-                {lead.status ===
-                  "CONVERTED" ? (
-                  <span
-                    className="
-      rounded-full
-      bg-green-100
-      px-3
-      py-1
-      text-xs
-      text-green-700
-    "
-                  >
-                    Converted
-                  </span>
-                ) : (
-                  <ConvertLeadButton
-                    leadId={lead._id}
-                  />
-                )}
-
-              </td>
-            </tr>
-          ))}
-
+                <td className="p-3">
+                  {lead.status === "CONVERTED" ? (
+                    <span className="rounded bg-green-100 px-2 py-1 text-green-700">
+                      Converted
+                    </span>
+                  ) : (
+                    <ConvertLeadButton leadId={lead._id} />
+                  )}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
 
       </table>
