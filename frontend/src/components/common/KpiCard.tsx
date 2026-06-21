@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-interface Props {
+interface KpiCardProps {
   title: string;
   value: string | number;
 }
@@ -13,18 +6,16 @@ interface Props {
 export default function KpiCard({
   title,
   value,
-}: Props) {
+}: KpiCardProps) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
+    <div className="rounded-xl border bg-white p-5 shadow-sm">
+      <p className="text-sm text-slate-500">
+        {title}
+      </p>
 
-      <CardContent>
-        <p className="text-3xl font-bold">
-          {value}
-        </p>
-      </CardContent>
-    </Card>
+      <h2 className="mt-2 text-3xl font-bold">
+        {value}
+      </h2>
+    </div>
   );
 }

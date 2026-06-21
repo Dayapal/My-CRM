@@ -29,6 +29,14 @@ export const registerUser = async (
       payload.password
     );
 
+  const organization =
+    await Organization.create({
+      name: payload.organizationName,
+      slug: payload.organizationName
+        .toLowerCase()
+        .replace(/\s+/g, "-"),
+    });
+
   const user =
     await User.create({
       firstName: payload.firstName,
@@ -36,29 +44,21 @@ export const registerUser = async (
       email: payload.email,
       password: hashedPassword,
       role: ROLES.OWNER,
+
+      organization:
+        organization._id,
     });
 
-  const organization =
-    await Organization.create({
-      name: payload.organizationName,
-      slug: payload.organizationName
-        .toLowerCase()
-        .replace(/\s+/g, "-"),
+  organization.owner =
+    user._id;
 
-      owner: user._id,
-    });
-
-  user.organization =
-    organization._id;
-
-  await user.save();
+  await organization.save();
 
   return {
     user,
     organization,
   };
 };
-
 import { comparePassword } from "../../utils/hash.js";
 
 export const loginUser = async (

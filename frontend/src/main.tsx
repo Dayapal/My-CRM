@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import { AuthProvider }
+from "@/features/auth/auth.context";
 import App from "./App";
+
+import "./index.css"; // <-- THIS IS MISSING
 
 import {
   QueryClientProvider,
@@ -16,7 +19,9 @@ ReactDOM.createRoot(
     <QueryClientProvider
       client={queryClient}
     >
-      <App />
+     <AuthProvider>
+    <App />
+  </AuthProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

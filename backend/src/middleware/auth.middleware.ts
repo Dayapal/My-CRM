@@ -18,6 +18,12 @@ export const protect =
     res: Response,
     next: NextFunction
   ) => {
+
+    console.log(
+      "AUTH HEADER:",
+      req.headers.authorization
+    );
+
     const authHeader =
       req.headers.authorization;
 
@@ -38,10 +44,18 @@ export const protect =
     const token =
       authHeader.split(" ")[1];
 
+    console.log(
+      "TOKEN:",
+      token
+    );
+
     const payload =
-      verifyAccessToken(
-        token
-      );
+      verifyAccessToken(token);
+
+    console.log(
+      "PAYLOAD:",
+      payload
+    );
 
     req.user = payload;
 

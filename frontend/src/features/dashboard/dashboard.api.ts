@@ -1,4 +1,4 @@
-import { api } from "@/api/axios";
+import { api } from "@/services/api";
 import type {
   DashboardOverview,
 } from "./dashboard.types.js";
