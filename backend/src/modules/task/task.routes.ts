@@ -5,7 +5,10 @@ import {
   createTask,
   getTasks,
   updateTaskStatus,
-  getTaskMetrics
+  getTaskMetrics,
+  getTask,
+  updateTask,
+  deleteTask,
 } from "./task.controller.js";
 
 import {
@@ -51,6 +54,21 @@ router.patch(
     updateTaskStatusSchema
   ),
   updateTaskStatus
+);
+
+router.get(
+  "/:id",
+  getTask
+);
+
+router.patch(
+  "/:id",
+  updateTask
+);
+
+router.delete(
+  "/:id",
+  deleteTask
 );
 
 export default router;

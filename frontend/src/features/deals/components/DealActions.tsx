@@ -3,7 +3,6 @@ import { useState } from "react";
 import {
   Trash2,
   Pencil,
-  MoveRight,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

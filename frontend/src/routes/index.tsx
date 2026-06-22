@@ -12,6 +12,7 @@ import LeadsPage from "../features/leads/pages/LeadsPage";
 import ContactsPage from "@/features/contacts/pages/ContactsPage";
 import CompaniesPage from "@/features/companies/pages/CompaniesPage";
 import DealsPage from "@/features/deals/Pages/DealsPage";
+import TasksPage from "@/features/tasks/pages/TasksPage";
 
 export default function AppRoutes() {
   return (
@@ -47,6 +48,10 @@ export default function AppRoutes() {
         <Route
           path="/deals"
           element={<DealsPage/>}
+        />
+        <Route
+          path="/tasks"
+          element={<TasksPage/>}
         />
       </Routes>
     </BrowserRouter>

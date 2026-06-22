@@ -254,3 +254,61 @@ export const updateTaskStatus =
       completionRate,
     };
   };
+
+
+  export const getTaskById = async (
+  taskId: string,
+  organizationId: string
+) => {
+  return Task.findOne({
+    _id: taskId,
+    organization: organizationId,
+  })
+    .populate("assignedTo")
+    .populate("lead")
+    .populate("contact")
+    .populate("deal");
+};
+
+export const updateTask = async (
+  taskId: string,
+  organizationId: string,
+  payload: any,
+  userId: string
+) => {
+  const task =
+    await Task.findOneAndUpdate(
+      {
+        _id: taskId,
+        organization: organizationId,
+      },
+      payload,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+  if (!task) return null;
+
+  await createActivity({
+    organization: organizationId,
+    user: userId,
+    type: ACTIVITY_TYPES.TASK_UPDATED,
+    entityType: "Task",
+    entityId: task._id.toString(),
+    description: `Task ${task.title} updated`,
+  });
+
+  return task;
+};
+
+export const deleteTask = async (
+  taskId: string,
+  organizationId: string
+) => {
+  return Task.findOneAndDelete({
+    _id: taskId,
+    organization: organizationId,
+  });
+};

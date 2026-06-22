@@ -92,3 +92,61 @@ export const getTaskMetrics =
       });
     }
   );
+
+
+  export const getTask =
+  asyncHandler(
+    async (
+      req: Request,
+      res: Response
+    ) => {
+      const task =
+        await TaskService.getTaskById(
+          req.params.id as string,
+          req.user.organizationId
+        );
+
+      res.json({
+        success: true,
+        data: task,
+      });
+    }
+  );
+
+export const updateTask =
+  asyncHandler(
+    async (
+      req: Request,
+      res: Response
+    ) => {
+      const task =
+        await TaskService.updateTask(
+          req.params.id as string,
+          req.user.organizationId,
+          req.body,
+          req.user.userId
+        );
+
+      res.json({
+        success: true,
+        data: task,
+      });
+    }
+  );
+
+export const deleteTask =
+  asyncHandler(
+    async (
+      req: Request,
+      res: Response
+    ) => {
+      await TaskService.deleteTask(
+        req.params.id as string,
+        req.user.organizationId
+      );
+
+      res.json({
+        success: true,
+      });
+    }
+  );
