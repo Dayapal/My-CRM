@@ -30,7 +30,7 @@ export const convertLeadToContact = async (
   // Prevent duplicate conversion
   if (
     lead.status ===
-    LEAD_STATUS.WON
+    LEAD_STATUS.CONVERTED
   ) {
     throw new ApiError(
       400,
@@ -75,11 +75,11 @@ export const convertLeadToContact = async (
     });
 
   // Update lead
-  lead.status = LEAD_STATUS.WON;
+  lead.status = LEAD_STATUS.CONVERTED;
 
-lead.convertedAt = new Date();
+  lead.convertedAt = new Date();
 
-await lead.save();
+  await lead.save();
 
   // Activity Log
   await createActivity({

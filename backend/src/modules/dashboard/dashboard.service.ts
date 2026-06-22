@@ -42,7 +42,7 @@ export const getDashboardData =
           organizationId,
 
         status:
-          LEAD_STATUS.WON,
+          LEAD_STATUS.CONVERTED,
       }),
 
       Deal.find({
@@ -236,7 +236,7 @@ export const getDashboardData =
       leads.filter(
         lead =>
           lead.status ===
-          LEAD_STATUS.WON
+          LEAD_STATUS.CONVERTED
       ).length;
 
     const pipelineValue =

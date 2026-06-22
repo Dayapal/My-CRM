@@ -1,47 +1,88 @@
-import { Button } from "@/components/ui/button";
+"use client";
 
+import { useState } from "react";
+import { CheckCircle2, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { convertLead } from "../leads.api";
 
 interface Props {
-    leadId: string;
+  leadId: string;
+  initialConverted?: boolean;
 }
 
 export default function ConvertLeadButton({
-    leadId,
+  leadId,
+  initialConverted = false,
 }: Props) {
-    const handleConvert =
-        async () => {
-            try {
-                await convertLead(
-                    leadId
-                );
+  const [isLoading, setIsLoading] = useState(false);
+  const [isConverted, setIsConverted] =
+    useState(initialConverted);
 
-                alert(
-                    "Lead Converted Successfully"
-                );
+  const handleConvert = async () => {
+    if (isConverted) return;
 
-                window.location.reload();
+    try {
+      setIsLoading(true);
 
-            } catch (error: any) {
-                console.error("CONVERT ERROR:", error);
-                console.error("RESPONSE:", error?.response?.data);
+      await convertLead(leadId);
 
-                alert(
-                    error?.response?.data?.message ||
-                    "Failed to convert lead"
-                );
-            }
-        };
+      setIsConverted(true);
 
-    return (
-        <Button
-            className="bg-red-400"
-            size="sm"
-            onClick={
-                handleConvert
-            }
-        >
-            Convert
-        </Button>
-    );
+      alert("Lead Converted Successfully");
+    } catch (error: any) {
+      console.error(error);
+
+      alert(
+        error?.response?.data?.message ||
+          "Failed to convert lead"
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <Button
+      size="sm"
+      disabled={isLoading || isConverted}
+      onClick={handleConvert}
+      className={
+        isConverted
+          ? `
+            bg-emerald-600
+            hover:bg-emerald-600
+            text-white
+            cursor-not-allowed
+            rounded-xl
+          `
+          : `
+            bg-linear-to-r
+            from-blue-600
+            to-indigo-600
+            hover:from-blue-700
+            hover:to-indigo-700
+            text-white
+            shadow-md
+            hover:shadow-lg
+            transition-all
+            duration-300
+            rounded-xl
+          `
+      }
+    >
+      {isLoading ? (
+        <>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          Converting...
+        </>
+      ) : isConverted ? (
+        <>
+          <CheckCircle2 className="mr-2 h-4 w-4" />
+          Converted
+        </>
+      ) : (
+        "Convert Lead"
+      )}
+    </Button>
+  );
 }

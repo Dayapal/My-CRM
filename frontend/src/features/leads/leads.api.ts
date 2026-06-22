@@ -30,11 +30,11 @@ export const convertLead =
   };
 
 
-  export const updateLead = async (
+export const updateLead = async (
   leadId: string,
   payload: any
 ) => {
-  const response = await api.put(
+  const response = await api.patch(
     `/leads/${leadId}`,
     payload
   );
