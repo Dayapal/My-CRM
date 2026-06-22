@@ -127,3 +127,44 @@ export const updateDealStage =
       });
     }
   );
+
+
+
+  export const updateDeal =
+  asyncHandler(
+    async (
+      req: Request,
+      res: Response
+    ) => {
+      const deal =
+        await DealService.updateDeal(
+          req.params.id as string,
+          req.user.organizationId,
+          req.body
+        );
+
+      res.json({
+        success: true,
+        message: "Deal updated",
+        data: deal,
+      });
+    }
+  );
+
+export const deleteDeal =
+  asyncHandler(
+    async (
+      req: Request,
+      res: Response
+    ) => {
+      await DealService.deleteDeal(
+        req.params.id as string,
+        req.user.organizationId
+      );
+
+      res.json({
+        success: true,
+        message: "Deal deleted",
+      });
+    }
+  );

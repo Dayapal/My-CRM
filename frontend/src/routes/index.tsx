@@ -11,6 +11,7 @@ import RegisterPage from "../features/auth/RegisterPage";
 import LeadsPage from "../features/leads/pages/LeadsPage";
 import ContactsPage from "@/features/contacts/pages/ContactsPage";
 import CompaniesPage from "@/features/companies/pages/CompaniesPage";
+import DealsPage from "@/features/deals/Pages/DealsPage";
 
 export default function AppRoutes() {
   return (
@@ -42,6 +43,10 @@ export default function AppRoutes() {
         <Route
           path="/companies"
           element={<CompaniesPage/>}
+        />
+        <Route
+          path="/deals"
+          element={<DealsPage/>}
         />
       </Routes>
     </BrowserRouter>

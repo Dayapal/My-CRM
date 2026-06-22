@@ -4,12 +4,12 @@ import KpiCard from "@/components/common/KpiCard";
 export default function DashboardPage() {
   return (
     <DashboardLayout>
-      <div className="space-y-6">
+      <div className="space-y-2">
         <h1 className="text-3xl font-bold">
           Dashboard
         </h1>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
           <KpiCard
             title="Total Leads"
             value={3}

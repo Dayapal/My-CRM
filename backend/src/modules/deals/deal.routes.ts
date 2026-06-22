@@ -7,7 +7,9 @@ import {
   updateDealStage,
   getDeal,
   getDealMetrics,
-  getKanbanDeals
+  getKanbanDeals,
+  updateDeal,
+deleteDeal
 } from "./deal.controller.js";
 
 import {
@@ -59,6 +61,16 @@ router.patch(
 router.get(
   "/:id",
   getDeal
+);
+
+router.patch(
+  "/:id",
+  updateDeal
+);
+
+router.delete(
+  "/:id",
+  deleteDeal
 );
 
 export default router;

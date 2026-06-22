@@ -286,3 +286,32 @@ export const updateDealStage =
       ),
     };
   };
+
+
+  export const updateDeal = async (
+  dealId: string,
+  organizationId: string,
+  payload: any
+) => {
+  return Deal.findOneAndUpdate(
+    {
+      _id: dealId,
+      organization: organizationId,
+    },
+    payload,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+};
+
+export const deleteDeal = async (
+  dealId: string,
+  organizationId: string
+) => {
+  return Deal.findOneAndDelete({
+    _id: dealId,
+    organization: organizationId,
+  });
+};
