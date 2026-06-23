@@ -9,6 +9,7 @@ import dealRoutes from "../modules/deals/deal.routes.js";
 import taskRoutes from "../modules/task/task.routes.js";
 import dashboardRoutes from "../modules/dashboard/dashboard.routes.js";
 import userRoutes from "../modules/users/user.routes.js";
+import notificationRoutes from "../modules/notifications/notification.routes.js";
 
 
 
@@ -54,6 +55,10 @@ router.use(
 router.use(
   "/users",
   userRoutes
+);
+router.use(
+  "/notifications",
+  notificationRoutes
 );
 
 export default router;
