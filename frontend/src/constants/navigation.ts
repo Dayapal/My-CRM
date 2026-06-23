@@ -44,6 +44,11 @@ export const navigation = [
     href: "/tasks",
     icon: CheckSquare,
   },
+  {
+  label: "Users",
+  path: "/users",
+  icon: Users,
+},
 
   {
     title: "Settings",

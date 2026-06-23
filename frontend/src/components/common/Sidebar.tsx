@@ -16,6 +16,7 @@ const menuItems = [
   { title: "Companies", href: "/companies", icon: Building2 },
   { title: "Deals", href: "/deals", icon: Handshake },
   { title: "Tasks", href: "/tasks", icon: CheckSquare },
+  { title: "Users", href: "/users", icon: Users },
   { title: "Settings", href: "/settings", icon: Settings },
 ];
 

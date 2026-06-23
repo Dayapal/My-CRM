@@ -13,6 +13,7 @@ import ContactsPage from "@/features/contacts/pages/ContactsPage";
 import CompaniesPage from "@/features/companies/pages/CompaniesPage";
 import DealsPage from "@/features/deals/Pages/DealsPage";
 import TasksPage from "@/features/tasks/pages/TasksPage";
+import UsersPage from "@/features/users/pages/UsersPage";
 
 export default function AppRoutes() {
   return (
@@ -52,6 +53,10 @@ export default function AppRoutes() {
         <Route
           path="/tasks"
           element={<TasksPage/>}
+        />
+        <Route
+          path="/users"
+          element={<UsersPage/>}
         />
       </Routes>
     </BrowserRouter>

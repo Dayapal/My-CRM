@@ -7,31 +7,32 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import {
-  Button,
-} from "@/components/ui/button";
+import { Button, } from "@/components/ui/button";
 
-import {
-  createTask,
-} from "../tasks.api";
+import { createTask, } from "../tasks.api";
 
+import { useUsers } from "@/features/users/useUsers";
 interface Props {
   open: boolean;
   onClose: () => void;
 }
 
+
 export default function CreateTaskDialog({
   open,
   onClose,
 }: Props) {
+
   const [formData, setFormData] =
     useState({
       title: "",
       description: "",
-      priority:"MEDIUM",
+      priority: "MEDIUM",
       dueDate: "",
+      assignedTo: "",
     });
-
+  const { data: users } =
+    useUsers();
   const handleSubmit =
     async (
       e: React.FormEvent
@@ -145,6 +146,33 @@ export default function CreateTaskDialog({
             }
           />
 
+          <select
+            value={formData.assignedTo}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                assignedTo:
+                  e.target.value,
+              })
+            }
+            className="w-full rounded border p-3"
+          >
+            <option value="">
+              Select Assignee
+            </option>
+
+            {users?.map(
+              (user: any) => (
+                <option
+                  key={user._id}
+                  value={user._id}
+                >
+                  {user.firstName}{" "}
+                  {user.lastName}
+                </option>
+              )
+            )}
+          </select>
           <Button
             type="submit"
             className="w-full"
