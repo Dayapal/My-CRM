@@ -1,3 +1,4 @@
+
 import {
   LayoutDashboard,
   Users,
@@ -6,6 +7,8 @@ import {
   Handshake,
   CheckSquare,
   Settings,
+  
+
 } from "lucide-react";
 
 export const navigation = [
@@ -44,9 +47,15 @@ export const navigation = [
     href: "/tasks",
     icon: CheckSquare,
   },
+
   {
   label: "Users",
   path: "/users",
+  icon: Users,
+},
+  {
+  label: "Reports",
+  path: "/reports",
   icon: Users,
 },
 

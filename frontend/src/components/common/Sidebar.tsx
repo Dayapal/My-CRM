@@ -6,6 +6,7 @@ import {
   Building2,
   Handshake,
   CheckSquare,
+  ChartColumn,
   Settings,
 } from "lucide-react";
 
@@ -17,6 +18,7 @@ const menuItems = [
   { title: "Deals", href: "/deals", icon: Handshake },
   { title: "Tasks", href: "/tasks", icon: CheckSquare },
   { title: "Users", href: "/users", icon: Users },
+  { title: "Reports", href: "/reports", icon: ChartColumn },
   { title: "Settings", href: "/settings", icon: Settings },
 ];
 

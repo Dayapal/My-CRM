@@ -11,6 +11,7 @@ import dashboardRoutes from "../modules/dashboard/dashboard.routes.js";
 import userRoutes from "../modules/users/user.routes.js";
 import notificationRoutes from "../modules/notifications/notification.routes.js";
 import reportRoutes from "../modules/reports/report.routes.js";
+import settingsRoutes from "../modules/settings/settings.routes.js";
 
 
 
@@ -65,6 +66,10 @@ router.use(
 router.use(
   "/reports",
   reportRoutes
+);
+router.use(
+  "/settings",
+  settingsRoutes
 );
 
 export default router;

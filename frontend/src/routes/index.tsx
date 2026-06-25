@@ -14,6 +14,7 @@ import CompaniesPage from "@/features/companies/pages/CompaniesPage";
 import DealsPage from "@/features/deals/Pages/DealsPage";
 import TasksPage from "@/features/tasks/pages/TasksPage";
 import UsersPage from "@/features/users/pages/UsersPage";
+import ReportsPage from "@/features/reports/pages/ReportsPage";
 
 export default function AppRoutes() {
   return (
@@ -54,10 +55,16 @@ export default function AppRoutes() {
           path="/tasks"
           element={<TasksPage/>}
         />
+
         <Route
           path="/users"
           element={<UsersPage/>}
         />
+        <Route
+          path="/reports"
+          element={<ReportsPage/>}
+        />
+
       </Routes>
     </BrowserRouter>
   );
