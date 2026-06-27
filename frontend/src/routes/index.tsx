@@ -1,8 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import {BrowserRouter,Routes,Route,} from "react-router-dom";
 
 import DashboardPage from "../pages/DashboardPage";
 
@@ -16,6 +12,7 @@ import TasksPage from "@/features/tasks/pages/TasksPage";
 import UsersPage from "@/features/users/pages/UsersPage";
 import ReportsPage from "@/features/reports/pages/ReportsPage";
 import SettingsPage from "@/features/settings/pages/SettingsPage";
+import ActivitiesPage from "@/features/activites/pages/ActivitiesPage";
 
 export default function AppRoutes() {
   return (
@@ -69,6 +66,10 @@ export default function AppRoutes() {
           path="/settings"
           element={<SettingsPage/>}
         />
+        <Route
+  path="/activities"
+  element={<ActivitiesPage/>}
+/>
 
       </Routes>
     </BrowserRouter>
