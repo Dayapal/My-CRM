@@ -40,3 +40,46 @@ export const createActivity =
       })
       .limit(limit);
   };
+
+
+  export const getUserActivities =
+  async (
+    organizationId: string,
+    userId: string
+  ) => {
+
+    return Activity.find({
+      organization:
+        organizationId,
+
+      user: userId,
+    })
+      .populate(
+        "user",
+        "firstName lastName"
+      )
+      .sort({
+        createdAt: -1,
+      });
+  };
+
+export const getEntityActivities =
+  async (
+    organizationId: string,
+    entityId: string
+  ) => {
+
+    return Activity.find({
+      organization:
+        organizationId,
+
+      entityId,
+    })
+      .populate(
+        "user",
+        "firstName lastName"
+      )
+      .sort({
+        createdAt: -1,
+      });
+  };
