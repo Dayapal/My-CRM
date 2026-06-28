@@ -6,6 +6,7 @@ export * from "./permissions.js";
 
 export * from "./deal.js";
 export * from "./task.js";
+export * from "./meeting.js";
 
 
 
