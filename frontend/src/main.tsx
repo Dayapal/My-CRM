@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { AuthProvider }
 from "@/features/auth/auth.context";
 import App from "./App";
-
+import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./index.css"; // <-- THIS IS MISSING
 
 import {

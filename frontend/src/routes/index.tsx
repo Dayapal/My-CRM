@@ -1,4 +1,4 @@
-import {BrowserRouter,Routes,Route,} from "react-router-dom";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 
 import DashboardPage from "../pages/DashboardPage";
 
@@ -13,6 +13,7 @@ import UsersPage from "@/features/users/pages/UsersPage";
 import ReportsPage from "@/features/reports/pages/ReportsPage";
 import SettingsPage from "@/features/settings/pages/SettingsPage";
 import ActivitiesPage from "@/features/activites/pages/ActivitiesPage";
+import MeetingsPage from "@/features/meetings/pages/MeetingsPage";
 
 export default function AppRoutes() {
   return (
@@ -39,37 +40,41 @@ export default function AppRoutes() {
         />
         <Route
           path="/contacts"
-          element={<ContactsPage/>}
+          element={<ContactsPage />}
         />
         <Route
           path="/companies"
-          element={<CompaniesPage/>}
+          element={<CompaniesPage />}
         />
         <Route
           path="/deals"
-          element={<DealsPage/>}
+          element={<DealsPage />}
         />
         <Route
           path="/tasks"
-          element={<TasksPage/>}
+          element={<TasksPage />}
         />
 
         <Route
           path="/users"
-          element={<UsersPage/>}
+          element={<UsersPage />}
         />
         <Route
           path="/reports"
-          element={<ReportsPage/>}
+          element={<ReportsPage />}
         />
         <Route
           path="/settings"
-          element={<SettingsPage/>}
+          element={<SettingsPage />}
         />
         <Route
-  path="/activities"
-  element={<ActivitiesPage/>}
-/>
+          path="/activities"
+          element={<ActivitiesPage />}
+        />
+        <Route
+          path="/meetings"
+          element={<MeetingsPage />}
+        />
 
       </Routes>
     </BrowserRouter>

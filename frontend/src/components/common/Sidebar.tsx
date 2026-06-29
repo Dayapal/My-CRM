@@ -8,7 +8,10 @@ import {
   CheckSquare,
   ChartColumn,
   Settings,
-  History
+  History,
+
+   CalendarDays,
+  
 } from "lucide-react";
 
 const menuItems = [
@@ -21,7 +24,8 @@ const menuItems = [
   { title: "Users", href: "/users", icon: Users },
   { title: "Reports", href: "/reports", icon: ChartColumn },
   { title: "Settings", href: "/settings", icon: Settings },
-  {title: "Activities",href: "/activities", icon: History,}
+  {title: "Activities",href: "/activities", icon: History,},
+  {title: "Meetings",href: "/meetings", icon: CalendarDays,}
 ];
 
 export default function Sidebar() {

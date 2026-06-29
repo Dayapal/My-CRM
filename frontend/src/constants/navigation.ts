@@ -7,7 +7,7 @@ import {
   Handshake,
   CheckSquare,
   Settings,
-  
+   CalendarDays,
 
 } from "lucide-react";
 
@@ -64,4 +64,9 @@ export const navigation = [
     href: "/settings",
     icon: Settings,
   },
+  {
+  title: "Meetings",
+  href: "/meetings",
+  icon: CalendarDays,
+}
 ];
