@@ -12,3 +12,21 @@ export const getDashboardOverview =
 
     return response.data.data;
   };
+
+
+
+
+
+
+
+export const getDashboardData =
+async ()=>{
+
+const response=
+await api.get(
+"/reports/dashboard"
+);
+
+return response.data.data;
+
+};

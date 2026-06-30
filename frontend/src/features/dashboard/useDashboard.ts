@@ -15,3 +15,29 @@ export const useDashboard =
         getDashboardOverview,
     });
   };
+
+
+
+  
+
+import {
+getDashboardData,
+}
+from "./dashboard.api";
+
+export const useDashbokard=
+()=>{
+
+return useQuery({
+
+queryKey:[
+"dashboard"
+],
+
+queryFn:
+getDashboardData,
+
+});
+};
+
+
