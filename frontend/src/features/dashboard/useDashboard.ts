@@ -6,38 +6,16 @@ import {
 
 export const useDashboard =
   () => {
+
     return useQuery({
+
       queryKey: [
         "dashboard-overview",
       ],
 
       queryFn:
         getDashboardOverview,
+
     });
+
   };
-
-
-
-  
-
-import {
-getDashboardData,
-}
-from "./dashboard.api";
-
-export const useDashbokard=
-()=>{
-
-return useQuery({
-
-queryKey:[
-"dashboard"
-],
-
-queryFn:
-getDashboardData,
-
-});
-};
-
-

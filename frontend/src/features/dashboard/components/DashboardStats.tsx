@@ -1,89 +1,55 @@
-import {
-  Users,
-  Building2,
-  BriefcaseBusiness,
-  DollarSign,
-  CheckSquare,
-  UserRound,
-} from "lucide-react";
+import DashboardLayout from "@/layouts/DashboardLayout";
 
-import StatCard from "./StatCard";
+import DashboardHeader from "../components/DashboardHeader";
+import DashboardStats from "../components/DashboardStats";
+import RecentActivities from "../components/RecentActivities";
 
-interface Props {
-  overview: {
-    totalLeads: number;
-    totalContacts: number;
-    totalCompanies: number;
-    totalDeals: number;
-    pipelineValue: number;
-    totalTasks: number;
-  };
-}
+import { useDashboard } from "../useDashboard";
 
-export default function DashboardStats({
-  overview,
-}: Props) {
+export default function DashboardPage() {
+  const {
+    data,
+    isLoading,
+    isError,
+  } = useDashboard();
+
+  if (isLoading) {
+    return (
+      <DashboardLayout>
+        <div className="flex h-[60vh] items-center justify-center">
+          Loading Dashboard...
+        </div>
+      </DashboardLayout>
+    );
+  }
+
+  if (isError || !data) {
+    return (
+      <DashboardLayout>
+        <div className="flex h-[60vh] items-center justify-center">
+          Failed To Load Dashboard
+        </div>
+      </DashboardLayout>
+    );
+  }
+
   return (
-    <div
-      className="
-        grid
-        grid-cols-1
-        gap-6
+    <DashboardLayout>
+      <div className="space-y-8">
 
-        sm:grid-cols-2
+        <DashboardHeader />
 
-        xl:grid-cols-3
+        {/* <DashboardStats
+          leads={data.leads}
+          deals={data.deals}
+          tasks={data.tasks}
+        /> */}
 
-        2xl:grid-cols-6
-      "
-    >
-      <StatCard
-        title="Total Leads"
-        value={overview.totalLeads}
-        icon={<Users size={28} />}
-        color="bg-blue-600"
-        change={18}
-      />
+        <RecentActivities
+          activities={data.recentActivities}
+        />
 
-      <StatCard
-        title="Contacts"
-        value={overview.totalContacts}
-        icon={<UserRound size={28} />}
-        color="bg-violet-600"
-        change={8}
-      />
-
-      <StatCard
-        title="Companies"
-        value={overview.totalCompanies}
-        icon={<Building2 size={28} />}
-        color="bg-cyan-600"
-        change={5}
-      />
-
-      <StatCard
-        title="Deals"
-        value={overview.totalDeals}
-        icon={<BriefcaseBusiness size={28} />}
-        color="bg-orange-500"
-        change={11}
-      />
-
-      <StatCard
-        title="Pipeline Value"
-        value={`₹${overview.pipelineValue.toLocaleString()}`}
-        icon={<DollarSign size={28} />}
-        color="bg-green-600"
-        change={22}
-      />
-
-      <StatCard
-        title="Tasks"
-        value={overview.totalTasks}
-        icon={<CheckSquare size={28} />}
-        color="bg-pink-600"
-        change={4}
-      />
-    </div>
+      </div>
+    </DashboardLayout>
   );
 }
