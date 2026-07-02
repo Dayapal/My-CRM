@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import DashboardLayout from "@/layouts/DashboardLayout";
 
 import DashboardHeader from "../components/DashboardHeader";
@@ -5,6 +6,25 @@ import DashboardStats from "../components/DashboardStats";
 import RecentActivities from "../components/RecentActivities";
 
 import { useDashboard } from "../useDashboard";
+
+const TypedDashboardStats = DashboardStats as ComponentType<{
+  leads: {
+    total: number;
+    converted: number;
+    conversionRate: number;
+  };
+  deals: {
+    total: number;
+    pipelineValue: number;
+    wonDeals: number;
+    lostDeals: number;
+  };
+  tasks: {
+    total: number;
+    completed: number;
+    completionRate: number;
+  };
+}>;
 
 export default function DashboardPage() {
   const {
@@ -39,11 +59,11 @@ export default function DashboardPage() {
 
         <DashboardHeader />
 
-        {/* <DashboardStats
+        <TypedDashboardStats
           leads={data.leads}
           deals={data.deals}
           tasks={data.tasks}
-        /> */}
+        />
 
         <RecentActivities
           activities={data.recentActivities}
