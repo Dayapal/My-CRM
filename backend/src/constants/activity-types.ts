@@ -37,6 +37,7 @@ export const ACTIVITY_TYPES = {
 
   MEETING_CANCELLED:
     "MEETING_CANCELLED",
+    NOTE_CREATED: "NOTE_CREATED",
 
 } as const;
 

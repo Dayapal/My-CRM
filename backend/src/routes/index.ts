@@ -13,6 +13,7 @@ import notificationRoutes from "../modules/notifications/notification.routes.js"
 import reportRoutes from "../modules/reports/report.routes.js";
 import settingsRoutes from "../modules/settings/settings.routes.js";
 import meetingRoutes from "../modules/meetings/meeting.routes.js";
+import noteRoutes from "../modules/notes/note.routes.js";
 
 
 
@@ -77,5 +78,9 @@ router.use(
   "/api/meetings",
   meetingRoutes
 );
-
+router.use(
+  "/api/notes",
+  noteRoutes
+  
+);
 export default router;
