@@ -14,6 +14,7 @@ import ReportsPage from "@/features/reports/pages/ReportsPage";
 import SettingsPage from "@/features/settings/pages/SettingsPage";
 import ActivitiesPage from "@/features/activites/pages/ActivitiesPage";
 import MeetingsPage from "@/features/meetings/pages/MeetingsPage";
+import NotesPage from "@/features/notes/pages/NotesPage";
 
 export default function AppRoutes() {
   return (
@@ -74,6 +75,10 @@ export default function AppRoutes() {
         <Route
           path="/meetings"
           element={<MeetingsPage />}
+        />
+        <Route
+          path="/notes"
+          element={<NotesPage/>}
         />
 
       </Routes>

@@ -9,8 +9,8 @@ import {
   ChartColumn,
   Settings,
   History,
-
    CalendarDays,
+   Notebook
   
 } from "lucide-react";
 
@@ -25,7 +25,8 @@ const menuItems = [
   { title: "Reports", href: "/reports", icon: ChartColumn },
   { title: "Settings", href: "/settings", icon: Settings },
   {title: "Activities",href: "/activities", icon: History,},
-  {title: "Meetings",href: "/meetings", icon: CalendarDays,}
+  {title: "Meetings",href: "/meetings", icon: CalendarDays,},
+  {title: "Note",href: "/notes", icon: Notebook,},
 ];
 
 export default function Sidebar() {

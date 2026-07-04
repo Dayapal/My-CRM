@@ -8,6 +8,8 @@ import {
   CheckSquare,
   Settings,
    CalendarDays,
+   Notebook
+  
 
 } from "lucide-react";
 
@@ -64,9 +66,15 @@ export const navigation = [
     href: "/settings",
     icon: Settings,
   },
+
   {
   title: "Meetings",
   href: "/meetings",
   icon: CalendarDays,
+},
+  {
+  title: "Note",
+  href: "/notes",
+  icon:  Notebook,
 }
 ];
