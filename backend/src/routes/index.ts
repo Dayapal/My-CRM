@@ -75,11 +75,11 @@ router.use(
 );
 
 router.use(
-  "/api/meetings",
+  "/meetings",
   meetingRoutes
 );
 router.use(
-  "/api/notes",
+  "/notes",
   noteRoutes
   
 );
