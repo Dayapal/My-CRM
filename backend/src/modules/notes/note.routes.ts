@@ -1,31 +1,16 @@
 import { Router }
 from "express";
 
-import {
-  createNote,
-  getNotes,
-  getNote,
-  getEntityNotes,
-  updateNote,
-  deleteNote,
-}
-from "./note.controller.js";
+import {createNote, getNotes,getNote,getEntityNotes,updateNote,deleteNote,}from "./note.controller.js";
 
 import {
   protect,
 }
 from "../../middleware/auth.middleware.js";
 
-import {
-  validate,
-}
-from "../../middleware/validate.middleware.js";
+import {validate,}from "../../middleware/validate.middleware.js";
 
-import {
-  createNoteSchema,
-  updateNoteSchema,
-}
-from "./note.validation.js";
+import {createNoteSchema,updateNoteSchema,}from "./note.validation.js";
 
 const router =
   Router();
@@ -69,15 +54,13 @@ GET /notes/entity/Lead/:entityId
 router.get(
   "/entity/:entityType/:entityId",
   getEntityNotes
-);
-
+)
 /*
 =========================================
 Get Single Note
 GET /notes/:id
 =========================================
 */
-
 router.get(
   "/:id",
   getNote
