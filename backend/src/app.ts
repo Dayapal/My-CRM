@@ -6,6 +6,9 @@ import cookieParser from "cookie-parser";
 
 import routes from "./routes/index.js";
 import { errorHandler } from "./middleware/error.middleware.js";
+import path
+from "path";
+
 
 const app = express();
 
@@ -33,6 +36,20 @@ app.get("/api/health", (_, res) => {
   });
 });
 
+app.use(
+
+  "/uploads",
+
+  express.static(
+
+    path.join(
+      process.cwd(),
+      "uploads"
+    )
+
+  )
+
+);
 // Always last
 app.use(errorHandler);
 

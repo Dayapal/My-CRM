@@ -1,79 +1,79 @@
-// import { Router }
-// from "express";
+import { Router }
+from "express";
 
-// import {
-//   protect,
-// } from "../../middleware/auth.middleware.js";
+import {
+  protect,
+} from "../../middleware/auth.middleware.js";
 
-// import {
-//   validate,
-// } from "../../middleware/validate.middleware.js";
+import {
+  validate,
+} from "../../middleware/validate.middleware.js";
 
-// import {
-//   createDocumentSchema,
-// } from "./document.validation.js";
+import {
+  createDocumentSchema,
+} from "./document.validation.js";
 
-// import {
-//   uploadDocument,
-//   getDocuments,
-//   getEntityDocuments,
-//   deleteDocument,
-// } from "./document.controller.js";
+import {
+  uploadDocument,
+  getDocuments,
+  getEntityDocuments,
+  deleteDocument,
+} from "./document.controller.js";
 
-// import upload
-// from "../../middleware/upload.middleware.js";
+import upload
+from "../../middleware/upload.middleware.js";
 
-// const router =
-//   Router();
+const router =
+  Router();
 
-// router.use(protect);
+router.use(protect);
 
-// /*
-// ==================================
-// POST /documents
-// ==================================
-// */
+/*
+==================================
+POST /documents
+==================================
+*/
 
-// router.post(
-//   "/",
-//   upload.single("file"),
-//   validate(
-//     createDocumentSchema
-//   ),
-//   uploadDocument
-// );
+router.post(
+  "/",
+  upload.single("file"),
+  validate(
+    createDocumentSchema
+  ),
+  uploadDocument
+);
 
-// /*
-// ==================================
-// GET /documents
-// ==================================
-// */
+/*
+==================================
+GET /documents
+==================================
+*/
 
-// router.get(
-//   "/",
-//   getDocuments
-// );
+router.get(
+  "/",
+  getDocuments
+);
 
-// /*
-// ==================================
-// GET /documents/entity/Lead/:id
-// ==================================
-// */
+/*
+==================================
+GET /documents/entity/Lead/:id
+==================================
+*/
 
-// router.get(
-//   "/entity/:entityType/:entityId",
-//   getEntityDocuments
-// );
+router.get(
+  "/entity/:entityType/:entityId",
+  getEntityDocuments
+);
 
-// /*
-// ==================================
-// DELETE /documents/:id
-// ==================================
-// */
+/*
+==================================
+DELETE /documents/:id
+==================================
+*/
 
-// router.delete(
-//   "/:id",
-//   deleteDocument
-// );
+router.delete(
+  "/:id",
+  deleteDocument
+);
 
-// export default router;
+export default router;

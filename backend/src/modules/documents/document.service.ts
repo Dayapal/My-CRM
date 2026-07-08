@@ -1,183 +1,186 @@
-// import { v2 as cloudinary }
-// from "cloudinary";
+import { v2 as cloudinary }
+from "cloudinary";
 
-// import { CRMDocument }
-// from "./document.model.js";
+import { CRMDocument }
+from "./document.model.js";
 
-// import {
-//   createActivity,
-// } from "../activities/activity.service.js";
+import {
+  createActivity,
+} from "../activities/activity.service.js";
 
-// import {
-//   ACTIVITY_TYPES,
-// } from "../../constants/activity-types.js";
+import {
+  ACTIVITY_TYPES,
+} from "../../constants/activity-types.js";
 
-// export const uploadDocument =
-//   async (
-//     payload: any,
-//     file: Express.Multer.File,
-//     organizationId: string,
-//     userId: string
-//   ) => {
+export const uploadDocument =
+  async (
+    payload: any,
+    file: Express.Multer.File,
+    organizationId: string,
+    userId: string
+  ) => {
 
-//     const result =
-//       await cloudinary.uploader.upload(
-//         file.path,
-//         {
-//           folder:
-//             "crm-documents",
-//           resource_type:
-//             "auto",
-//         }
-//       );
+    const result =
+      await cloudinary.uploader.upload(
+        file.path,
+        {
+          folder:
+            "crm-documents",
+          resource_type:
+            "auto",
+        }
+      );
 
-//     const document =
-//       await CRMDocument.create({
+    const document =
+      await CRMDocument.create({
 
-//         title:
-//           payload.title,
+        title:
+          payload.title,
 
-//         originalName:
-//           file.originalname,
+        originalName:
+          file.originalname,
 
-//         fileUrl:
-//           result.secure_url,
+        fileUrl:
+          result.secure_url,
 
-//         publicId:
-//           result.public_id,
+        publicId:
+          result.public_id,
 
-//         mimeType:
-//           file.mimetype,
+        mimeType:
+          file.mimetype,
 
-//         size:
-//           file.size,
+        size:
+          file.size,
 
-//         entityType:
-//           payload.entityType,
+        entityType:
+          payload.entityType,
 
-//         entityId:
-//           payload.entityId,
+        entityId:
+          payload.entityId,
 
-//         uploadedBy:
-//           userId,
+        uploadedBy:
+          userId,
 
-//         organization:
-//           organizationId,
+        organization:
+          organizationId,
 
-//       });
+      });
 
-//     await createActivity({
+    await createActivity({
 
-//       organization:
-//         organizationId,
+      organization:
+        organizationId,
 
-//       user:
-//         userId,
+      user:
+        userId,
 
-//       type:
-//         ACTIVITY_TYPES.DOCUMENT_UPLOADED,
+      type:
+        ACTIVITY_TYPES.DOCUMENT_UPLOADED,
 
-//       entityType:
-//         "Document",
+      entityType:
+        "Document",
 
-//       entityId:
-//         document._id.toString(),
+      entityId:
+        document._id.toString(),
 
-//       description:
-//         `Uploaded document "${document.title}"`,
+      description:
+        `Uploaded document "${document.title}"`,
 
-//     });
+    });
 
-//     return document;
+    return document;
 
-//   };
+  };
 
-// export const getDocuments =
-//   async (
-//     organizationId: string
-//   ) => {
+export const getDocuments =
+  async (
+    organizationId: string
+  ) => {
 
-//     return CRMDocument.find({
+    return CRMDocument.find({
 
-//       organization:
-//         organizationId,
+      organization:
+        organizationId,
 
-//     })
+    })
 
-//       .populate(
-//         "uploadedBy",
-//         "firstName lastName"
-//       )
+      .populate(
+        "uploadedBy",
+        "firstName lastName"
+      )
 
-//       .sort({
-//         createdAt: -1,
-//       });
+      .sort({
+        createdAt: -1,
+      });
 
-//   };
+  };
 
-// export const getEntityDocuments =
-//   async (
-//     entityType: string,
-//     entityId: string,
-//     organizationId: string
-//   ) => {
+export const getEntityDocuments =
+  async (
+    entityType: string,
+    entityId: string,
+    organizationId: string
+  ) => {
 
-//     return CRMDocument.find({
+    return CRMDocument.find({
 
-//       entityType,
+      entityType: entityType as
+    | "Lead"
+    | "Contact"
+    | "Company"
+    | "Deal"
+    | "Task"
+    | "Meeting",
+  entityId,
+  organization: organizationId,
 
-//       entityId,
+    })
 
-//       organization:
-//         organizationId,
+      .populate(
+        "uploadedBy",
+        "firstName lastName"
+      )
 
-//     })
+      .sort({
+        createdAt: -1,
+      });
 
-//       .populate(
-//         "uploadedBy",
-//         "firstName lastName"
-//       )
+  };
 
-//       .sort({
-//         createdAt: -1,
-//       });
+export const deleteDocument =
+  async (
+    id: string,
+    organizationId: string
+  ) => {
 
-//   };
+    const document =
+      await CRMDocument.findOne({
 
-// export const deleteDocument =
-//   async (
-//     id: string,
-//     organizationId: string
-//   ) => {
+        _id: id,
 
-//     const document =
-//       await CRMDocument.findOne({
+        organization:
+          organizationId,
 
-//         _id: id,
+      });
 
-//         organization:
-//           organizationId,
+    if (!document) {
+      throw new Error(
+        "Document not found"
+      );
+    }
 
-//       });
+    await cloudinary.uploader.destroy(
+      document.publicId,
+      {
+        resource_type:
+          "raw",
+      }
+    );
 
-//     if (!document) {
-//       throw new Error(
-//         "Document not found"
-//       );
-//     }
+    await CRMDocument.findByIdAndDelete(
+      id
+    );
 
-//     await cloudinary.uploader.destroy(
-//       document.publicId,
-//       {
-//         resource_type:
-//           "raw",
-//       }
-//     );
+    return true;
 
-//     await CRMDocument.findByIdAndDelete(
-//       id
-//     );
-
-//     return true;
-
-//   };
+  };
