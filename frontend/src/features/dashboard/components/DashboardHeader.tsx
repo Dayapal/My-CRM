@@ -36,27 +36,14 @@ export default function DashboardHeader({
   return (
     <>
       <div
-        className="
-          flex
-          flex-col
-          gap-6
-          lg:flex-row
-          lg:items-center
-          lg:justify-between
+        className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between
         "
       >
         <div>
-          <h1
-            className="
-              text-4xl
-              font-bold
-              tracking-tight
-              text-slate-900
-            "
-          >
+          <h1 className="text-4xl font-bold tracking-tight  text-slate-900">
             Welcome back,
             <span className="text-blue-600"> {userName}</span> 👋
-          </h1>
+</h1>
 
           <p
             className="
