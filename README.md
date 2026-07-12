@@ -4,6 +4,7 @@ A full-stack **Customer Relationship Management (CRM)** application built using 
 
 ## 🚀 Features
 
+
 - 🔐 JWT Authentication & Authorization
 - 👥 Role-Based Access Control (Admin, Manager, Sales Executive)
 - 👤 User Management
