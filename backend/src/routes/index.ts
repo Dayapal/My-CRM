@@ -14,6 +14,7 @@ import reportRoutes from "../modules/reports/report.routes.js";
 import settingsRoutes from "../modules/settings/settings.routes.js";
 import meetingRoutes from "../modules/meetings/meeting.routes.js";
 import noteRoutes from "../modules/notes/note.routes.js";
+import searchRoutes from "../modules/search/search.routes.js";
 
 
 
@@ -82,5 +83,9 @@ router.use(
   "/notes",
   noteRoutes
   
+);
+router.use(
+  "/search",
+  searchRoutes
 );
 export default router;
