@@ -42,14 +42,10 @@ export default function DashboardHeader({
         <div>
           <h1 className="text-4xl font-bold tracking-tight  text-slate-900">
             Welcome back,
-            <span className="text-blue-600"> {userName}</span> 👋
-</h1>
+            <span className="text-blue-600"> {userName}</span> 👋</h1>
 
           <p
-            className="
-              mt-2
-              text-lg
-              text-slate-500
+            className="mt-2 text-lg text-slate-500
             "
           >
             Here's what's happening in your CRM today.
