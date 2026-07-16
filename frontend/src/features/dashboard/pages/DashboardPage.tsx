@@ -4,6 +4,8 @@ import type { ComponentType } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardStats from "../components/DashboardStats";
 import RecentActivities from "../components/RecentActivities";
+import PermissionGuard from "@/components/PermissionGuard";
+import { PERMISSIONS } from "@/constants/permissions";
 
 import { useDashboard } from "../useDashboard";
 
@@ -53,6 +55,15 @@ export default function DashboardPage() {
         />
 
       </div>
+
+      <PermissionGuard permission={PERMISSIONS.CREATE_LEAD}>
+        <button className="rounded bg-blue-600 px-4 py-2 text-white">
+          Create Lead (Permission Test)
+        </button>
+      </PermissionGuard>
+
+
+      
     </DashboardLayout>
   );
 }

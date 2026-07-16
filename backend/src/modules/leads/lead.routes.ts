@@ -28,6 +28,10 @@ import {
 }
 from "./lead.validation.js";
 
+import { checkPermission } from "../../middleware/permission.middleware.js";
+// import { checkPermission } from "../../middleware/permission.middleware";
+import { PERMISSIONS } from "../../constants/permissions.js";
+
 const router =
   Router();
 
@@ -69,5 +73,26 @@ router.patch(
 router.post(
   "/:id/convert",
   convertLead
+);
+
+router.post(
+  "/",
+  protect,
+  checkPermission(PERMISSIONS.CREATE_LEAD),
+  createLead
+);
+
+router.patch(
+  "/:id",
+  protect,
+  checkPermission(PERMISSIONS.EDIT_LEAD),
+  updateLead
+);
+
+router.delete(
+  "/:id",
+  protect,
+  checkPermission(PERMISSIONS.DELETE_LEAD),
+  deleteLead
 );
 export default router;
