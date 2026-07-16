@@ -11,13 +11,9 @@ export interface DashboardOverview {
   };
 
   deals: {
-
     total: number;
-
     pipelineValue: number;
-
     wonDeals: number;
-
     lostDeals: number;
 
   };
@@ -25,9 +21,7 @@ export interface DashboardOverview {
   tasks: {
 
     total: number;
-
     completed: number;
-
     completionRate: number;
 
   };
