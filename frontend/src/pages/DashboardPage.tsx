@@ -3,13 +3,7 @@ import DashboardLayout from "@/layouts/DashboardLayout";
 
 import {useDashboard,} from "@/features/dashboard/useDashboard";
 
-import {
-  Users,
-  UserCheck,
-  Briefcase,
-  IndianRupee,
-  CheckSquare,
-  Target,} from "lucide-react";
+import {Users,UserCheck,Briefcase,IndianRupee,CheckSquare,Target,} from "lucide-react";
 
 import KpiCard from "@/components/dashboard/KpiCard";
 import RecentActivities from "@/components/dashboard/RecentActivities";
@@ -44,12 +38,7 @@ export default function DashboardPage() {
           Dashboard
         </h1>
 
-        <div className="
-  grid
-  gap-4
-  md:grid-cols-2
-  xl:grid-cols-3
-"
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
         >
           <KpiCard
             title="Total Leads"

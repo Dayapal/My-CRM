@@ -2,7 +2,6 @@ interface KpiCardProps {
   title: string;
   value: string | number;
 }
-
 export default function KpiCard({
   title,
   value,
