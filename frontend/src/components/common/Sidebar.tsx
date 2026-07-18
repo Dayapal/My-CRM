@@ -1,18 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  LayoutDashboard,
-  Users,
-  Contact,
-  Building2,
-  Handshake,
-  CheckSquare,
-  ChartColumn,
-  Settings,
-  History,
-   CalendarDays,
-   Notebook
-  
-} from "lucide-react";
+import {LayoutDashboard,Users,Contact,Building2,Handshake,CheckSquare, ChartColumn,Settings,History,CalendarDays,Notebook} from "lucide-react";
 
 const menuItems = [
   { title: "Dashboard", href: "/", icon: LayoutDashboard },
@@ -28,7 +15,6 @@ const menuItems = [
   {title: "Meetings",href: "/meetings", icon: CalendarDays,},
   {title: "Note",href: "/notes", icon: Notebook,},
 ];
-
 export default function Sidebar() {
   return (
     <aside className="w-64 min-h-screen border-r bg-slate-900 text-white">
