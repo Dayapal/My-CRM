@@ -14,10 +14,7 @@ import {
 import { asyncHandler } from "../../utils/asyncHandler.js";
 
 import { User } from "../users/user.model.js";
-
 import { ApiError } from "../../utils/ApiError.js";
-
-
 export const register = asyncHandler(
     
   async (
@@ -26,7 +23,6 @@ export const register = asyncHandler(
   ) => {
     const result =
       await registerUser(req.body);
-
     res.status(201).json({
       success: true,
       message:
@@ -45,8 +41,7 @@ export const login = asyncHandler(
 
     const user =
       await loginUser(
-        email,
-        password
+        email,password
       );
 
     if (!user.organization) {
