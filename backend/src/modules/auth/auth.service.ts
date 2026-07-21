@@ -1,10 +1,7 @@
 import { User } from "../users/user.model.js";
 import { ROLES } from "../../constants/index.js";
 import { Organization } from "../organizations/organization.model.js";
-import type {
-  RegisterInput,
-  LoginInput,
-} from "./auth.types.js";
+import type {RegisterInput,LoginInput,} from "./auth.types.js";
 
 import { hashPassword } from "../../utils/hash.js";
 import { ApiError } from "../../utils/ApiError.js";
