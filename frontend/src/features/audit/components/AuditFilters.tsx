@@ -98,15 +98,12 @@ export default function AuditFilters() {
         <option value="Meeting">
           Meeting
         </option>
-
         <option value="Note">
           Note
         </option>
-
         <option value="Document">
           Document
         </option>
-
       </select>
 
     </div>
