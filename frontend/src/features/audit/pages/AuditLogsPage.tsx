@@ -32,12 +32,8 @@ export default function AuditLogsPage() {
 
                 </div>
 
-            </DashboardLayout>
-
-        );
-
+            </DashboardLayout>);
     }
-
     if (isError) {
 
         return (
