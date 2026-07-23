@@ -88,13 +88,10 @@ export default function AuditFilters() {
         </option>
 
         <option value="Deal">
-          Deal
-        </option>
-
+          Deal</option>
         <option value="Task">
           Task
         </option>
-
         <option value="Meeting">
           Meeting
         </option>
