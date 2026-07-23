@@ -15,6 +15,7 @@ import SettingsPage from "@/features/settings/pages/SettingsPage";
 import ActivitiesPage from "@/features/activites/pages/ActivitiesPage";
 import MeetingsPage from "@/features/meetings/pages/MeetingsPage";
 import NotesPage from "@/features/notes/pages/NotesPage";
+import AuditLogsPage from "@/features/audit/pages/AuditLogsPage";
 
 export default function AppRoutes() {
   return (
@@ -79,6 +80,10 @@ export default function AppRoutes() {
         <Route
           path="/notes"
           element={<NotesPage/>}
+        />
+        <Route
+          path="/audit"
+          element={<AuditLogsPage/>}
         />
 
       </Routes>
