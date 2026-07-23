@@ -41,11 +41,8 @@ export default function AuditLogsPage() {
     if (isError) {
 
         return (
-
             <DashboardLayout>
-
                 <div className="flex h-[60vh] items-center justify-center">
-
                     Failed To Load Audit Logs
                 </div>
             </DashboardLayout>

@@ -48,23 +48,15 @@ export const getAuditLog =
 
   };
 
-/*
-=========================================
-Delete Audit Log
-DELETE /audit/:id
-=========================================
-*/
 
 export const deleteAuditLog =
   async (
     id: string
   ) => {
-
     const response =
       await api.delete(
         `/audit/${id}`
       );
-
     return response.data;
 
   };
