@@ -125,7 +125,6 @@ export default function AuditTable({
               <td className="px-4 py-3">
 
                 {log.description}
-
               </td>
 
               <td className="px-4 py-3 text-sm text-gray-500">

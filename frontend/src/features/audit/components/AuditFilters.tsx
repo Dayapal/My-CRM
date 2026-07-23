@@ -82,11 +82,9 @@ export default function AuditFilters() {
         <option value="Contact">
           Contact
         </option>
-
         <option value="Company">
           Company
         </option>
-
         <option value="Deal">
           Deal</option>
         <option value="Task">
