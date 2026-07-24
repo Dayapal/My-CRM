@@ -75,7 +75,6 @@ router.use(
   "/settings",
   settingsRoutes
 );
-
 router.use(
   "/meetings",
   meetingRoutes
@@ -94,7 +93,6 @@ router.use(
   "/audit",
   auditRoutes
 );
-
 router.use(
   "/workflow",
   workflowRoutes
