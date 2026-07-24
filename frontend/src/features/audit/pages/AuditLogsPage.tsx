@@ -31,7 +31,6 @@ export default function AuditLogsPage() {
                     Loading Audit Logs...
 
                 </div>
-
             </DashboardLayout>);
     }
     if (isError) {
