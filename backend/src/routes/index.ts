@@ -16,7 +16,7 @@ import meetingRoutes from "../modules/meetings/meeting.routes.js";
 import noteRoutes from "../modules/notes/note.routes.js";
 import searchRoutes from "../modules/search/search.routes.js";
 import auditRoutes from "../modules/audit/audit.routes.js";
-
+import workflowRoutes from "../modules/workflow/workflow.routes.js";
 
 
 const router =
@@ -93,5 +93,10 @@ router.use(
 router.use(
   "/audit",
   auditRoutes
+);
+
+router.use(
+  "/workflow",
+  workflowRoutes
 );
 export default router;
