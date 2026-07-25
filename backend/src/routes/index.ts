@@ -44,7 +44,6 @@ router.use(
   "/companies",
   companyRoutes
 );
-
 router.use(
   "/deals",
   dealRoutes

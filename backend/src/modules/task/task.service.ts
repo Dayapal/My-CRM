@@ -28,26 +28,29 @@ export const createTask = async (
       organization:
         organizationId,
     });
+const activityType =
+  status === TASK_STATUS.COMPLETED
+    ? ACTIVITY_TYPES.TASK_COMPLETED
+    : ACTIVITY_TYPES.TASK_UPDATED;
 
-  await createActivity({
-    organization:
-      organizationId,
+const description =
+  status === TASK_STATUS.COMPLETED
+    ? "Task completed"
+    : `Task moved to ${status}`;
 
-    user: userId,
+await createActivity({
+  organization: organizationId,
 
-    type:
-      ACTIVITY_TYPES.TASK_CREATED,
+  user: userId,
 
-    entityType:
-      "Task",
+  type: activityType,
 
-    entityId:
-      task._id.toString(),
+  entityType: "Task",
 
-    description:
-      `Task ${task.title} created`,
-  });
+  entityId: task._id.toString(),
 
+  description,
+});
   return Task.findById(
     task._id
   )
