@@ -48,11 +48,7 @@ export const PERMISSIONS = {
 
   /* Reports */
   VIEW_REPORTS: "VIEW_REPORTS",
-
-  /* Users */
   MANAGE_USERS: "MANAGE_USERS",
-
-  /* Settings */
   MANAGE_SETTINGS: "MANAGE_SETTINGS",
 } as const;
 

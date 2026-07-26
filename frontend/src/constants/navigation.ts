@@ -60,7 +60,6 @@ export const navigation = [
   path: "/reports",
   icon: Users,
 },
-
   {
     title: "Settings",
     href: "/settings",
