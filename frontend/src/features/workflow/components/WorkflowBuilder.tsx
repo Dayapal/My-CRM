@@ -5,25 +5,16 @@ import {
 const TRIGGERS = [
   "Lead Created",
   "Lead Updated",
-
   "Lead Qualified",
-
   "Deal Won",
-
   "Task Completed",
-
 ];
 
 const ACTIONS = [
-
   "Assign Owner",
-
   "Create Task",
-
   "Send Email",
-
   "Send Notification",
-
   "Create Audit Log",
 
 ];
