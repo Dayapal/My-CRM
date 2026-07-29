@@ -19,41 +19,31 @@ export const createTask = async (
   organizationId: string,
   userId: string
 ) => {
-  const task =
-    await Task.create({
-      ...payload,
-      assignedTo:
-        payload.assignedTo ||
-        userId,
-      organization:
-        organizationId,
-    });
-const activityType =
-   task.status === TASK_STATUS.COMPLETED
-    ? ACTIVITY_TYPES.TASK_COMPLETED
-    : ACTIVITY_TYPES.TASK_UPDATED;
+  const task = await Task.create({
+    ...payload,
 
-const description =
-  status === TASK_STATUS.COMPLETED
-    ? "Task completed"
-    : `Task moved to ${status}`;
+    assignedTo:
+      payload.assignedTo ?? userId,
 
-await createActivity({
-  organization: organizationId,
+    organization:
+      organizationId,
+  });
 
-  user: userId,
+  await createActivity({
+    organization: organizationId,
 
-  type: activityType,
+    user: userId,
 
-  entityType: "Task",
+    type: ACTIVITY_TYPES.TASK_CREATED,
 
-  entityId: task._id.toString(),
+    entityType: "Task",
 
-  description,
-});
-  return Task.findById(
-    task._id
-  )
+    entityId: task._id.toString(),
+
+    description: `Task "${task.title}" created`,
+  });
+
+  return Task.findById(task._id)
     .populate(
       "assignedTo",
       "firstName lastName email"

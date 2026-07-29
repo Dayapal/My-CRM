@@ -1,9 +1,5 @@
 import { createAuditLog } from "../audit/audit.service.js";
-
-// Future imports
-// import { createTask } from "../task/task.service";
-// import { createNotification } from "../notification/notification.service";
-// import { sendEmail } from "../../utils/email.service";
+import { createTask } from "../task/task.service.js";
 
 interface ExecuteWorkflowActionInput {
   action: string;
@@ -28,7 +24,11 @@ export async function executeWorkflowAction({
       break;
 
     case "Create Task":
-      console.log("Create Task");
+      await handleCreateTask({
+        entity,
+        organization,
+        user,
+      });
       break;
 
     case "Send Notification":
@@ -45,13 +45,12 @@ export async function executeWorkflowAction({
 
     default:
       console.log(`Unknown Workflow Action: ${action}`);
-      break;
   }
 }
 
 /*
 |--------------------------------------------------------------------------
-| Private Helper Functions
+| Audit Log
 |--------------------------------------------------------------------------
 */
 
@@ -66,13 +65,13 @@ async function handleAuditLog({
 }) {
   await createAuditLog({
     organization,
-    user: user._id,
+    user: user._id.toString(),
 
     action: "Workflow",
 
     module: "Workflow",
 
-    entityId: entity._id,
+    entityId: entity._id.toString(),
 
     entityName:
       entity.name ??
@@ -86,4 +85,46 @@ async function handleAuditLog({
 
     userAgent: "",
   });
+}
+
+/*
+|--------------------------------------------------------------------------
+| Create Task
+|--------------------------------------------------------------------------
+*/
+
+async function handleCreateTask({
+  entity,
+  organization,
+  user,
+}: {
+  entity: any;
+  organization: string;
+  user: any;
+}) {
+  await createTask(
+    {
+      title: `Follow up - ${
+        entity.name ??
+        entity.title ??
+        entity.firstName ??
+        "New Record"
+      }`,
+
+      description:
+        "Task created automatically by Workflow Engine.",
+
+      assignedTo: user._id,
+
+      lead: entity._id,
+
+      dueDate: new Date(
+        Date.now() + 24 * 60 * 60 * 1000
+      ),
+    },
+
+    organization,
+
+    user._id.toString()
+  );
 }
