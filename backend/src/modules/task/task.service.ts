@@ -29,7 +29,7 @@ export const createTask = async (
         organizationId,
     });
 const activityType =
-  status === TASK_STATUS.COMPLETED
+   task.status === TASK_STATUS.COMPLETED
     ? ACTIVITY_TYPES.TASK_COMPLETED
     : ACTIVITY_TYPES.TASK_UPDATED;
 
@@ -156,7 +156,7 @@ export const updateTaskStatus =
         : ACTIVITY_TYPES.TASK_UPDATED;
 
     const description =
-      status ===
+       task.status ===
       TASK_STATUS.COMPLETED
         ? "Task completed"
         : `Task moved to ${status}`;
