@@ -22,7 +22,6 @@ export async function executeWorkflowAction({
         user,
       });
       break;
-
     case "Create Task":
       await handleCreateTask({
         entity,
