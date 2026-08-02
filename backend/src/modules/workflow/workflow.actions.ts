@@ -35,8 +35,15 @@ export async function executeWorkflowAction({
       break;
 
     case "Assign Owner":
-      console.log("Assign Owner");
-      break;
+       await handleAssignOwner({
+
+        entity,
+
+        user,
+
+    });
+
+    break;
 
     case "Send Email":
       console.log("Send Email");
@@ -126,4 +133,19 @@ async function handleCreateTask({
 
     user._id.toString()
   );
+}
+
+async function handleAssignOwner({
+  entity,
+  user,
+}: {
+  entity: any;
+  user: any;
+}) {
+  if (entity && user) {
+    entity.owner = user._id;
+    if (typeof entity.save === "function") {
+      await entity.save();
+    }
+  }
 }
