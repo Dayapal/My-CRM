@@ -2,13 +2,8 @@ import { Router }
 from "express";
 import { createTask,  getTasks,  updateTaskStatus,  getTaskMetrics,getTask,updateTask,deleteTask,} from "./task.controller.js";
 
-import {
-  protect,
-} from "../../middleware/auth.middleware.js";
-
-import {
-  validate,
-} from "../../middleware/validate.middleware.js";
+import {protect,} from "../../middleware/auth.middleware.js";
+import {validate} from "../../middleware/validate.middleware.js";
 
 import {
   createTaskSchema,
