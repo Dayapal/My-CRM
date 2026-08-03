@@ -27,7 +27,6 @@ export async function executeWorkflowAction({
         user,
       });
       break;
-
     case "Send Notification":
       console.log("Send Notification");
       break;
@@ -35,14 +34,11 @@ export async function executeWorkflowAction({
     case "Assign Owner":
        await handleAssignOwner({
 
-        entity,
-
-        user,
+        entity,user,
 
     });
 
     break;
-
     case "Send Email":
       console.log("Send Email");
       break;
