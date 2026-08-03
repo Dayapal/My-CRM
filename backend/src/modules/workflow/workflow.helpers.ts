@@ -24,9 +24,7 @@ async function handleAssignOwner({
     entity: any;
     user: any;
 }) {
-
     await assignLeadOwner(
-
         entity._id.toString(),
 
         user._id.toString()
