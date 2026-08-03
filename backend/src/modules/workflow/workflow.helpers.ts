@@ -18,17 +18,11 @@ export async function assignLeadOwner(
 
 
 async function handleAssignOwner({
-
     entity,
-
     user,
-
 }: {
-
     entity: any;
-
     user: any;
-
 }) {
 
     await assignLeadOwner(
