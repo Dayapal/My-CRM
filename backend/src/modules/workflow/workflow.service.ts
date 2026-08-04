@@ -24,11 +24,9 @@ export async function createWorkflow(
 ) {
 
   return await Workflow.create({
-
     ...payload,
     organization,
     createdBy,
-
   });
 
 }
