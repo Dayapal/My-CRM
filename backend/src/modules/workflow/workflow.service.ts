@@ -58,12 +58,10 @@ export async function getWorkflows(
 Get Single Workflow
 =========================================
 */
-
 export async function getWorkflowById(
   id: string,
   organization: string
 ) {
-
   const workflow =
     await Workflow
       .findOne({
