@@ -22,7 +22,6 @@ export async function createWorkflow(
   organization: string,
   createdBy: string
 ) {
-
   return await Workflow.create({
     ...payload,
     organization,
@@ -50,8 +49,7 @@ export async function getWorkflows(
       "firstName lastName email"
     )
     .sort({
-      createdAt: -1,
-    });
+      createdAt: -1,});
 
 }
 
