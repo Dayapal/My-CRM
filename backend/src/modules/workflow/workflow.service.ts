@@ -74,7 +74,6 @@ export async function getWorkflowById(
       );
 
   if (!workflow) {
-
     throw new ApiError(
       404,
       "Workflow not found"

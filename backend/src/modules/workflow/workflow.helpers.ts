@@ -27,16 +27,11 @@ async function handleAssignOwner({
     await assignLeadOwner(
         entity._id.toString(),
 
-        user._id.toString()
-
-    );
-
+        user._id.toString());
 }
-
 async function handleNotification({
 
     entity,
-
     organization,
 
     user,
