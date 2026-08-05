@@ -30,30 +30,21 @@ async function handleAssignOwner({
         user._id.toString());
 }
 async function handleNotification({
-
     entity,
     organization,
-
     user,
 
 }: {
 
     entity: any;
-
     organization: string;
-
     user: any;
 
 }) {
-
     await createNotification({
-
         organization,
-
         user: user._id,
-
         title: "Workflow Executed",
-
         message: `Workflow executed for ${entity.name ?? entity.title}`,
 
     });

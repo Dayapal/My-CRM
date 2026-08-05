@@ -44,23 +44,10 @@ router.use(
   "/companies",
   companyRoutes
 );
-router.use(
-  "/deals",
-  dealRoutes
-);
-router.use(
-  "/tasks",
-  taskRoutes
-);
-
-router.use(
-  "/dashboard",
-  dashboardRoutes
-);
-router.use(
-  "/users",
-  userRoutes
-);
+router.use("/deals", dealRoutes);
+router.use("/tasks",taskRoutes);
+router.use("/dashboard",dashboardRoutes);
+router.use( "/users",userRoutes);
 router.use(
   "/notifications",
   notificationRoutes
