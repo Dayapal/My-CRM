@@ -32,8 +32,7 @@ const workflowSchema = new Schema<IWorkflow>(
       required: true,
       index: true,
     },
-
-    name: {
+name: {
       type: String,
       required: true,
       trim: true,

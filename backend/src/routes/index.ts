@@ -48,19 +48,9 @@ router.use("/deals", dealRoutes);
 router.use("/tasks",taskRoutes);
 router.use("/dashboard",dashboardRoutes);
 router.use( "/users",userRoutes);
-router.use(
-  "/notifications",
-  notificationRoutes
-);
-
-router.use(
-  "/reports",
-  reportRoutes
-);
-router.use(
-  "/settings",
-  settingsRoutes
-);
+router.use("/notifications",notificationRoutes);
+router.use("/reports",reportRoutes);
+router.use( "/settings",settingsRoutes);
 router.use(
   "/meetings",
   meetingRoutes
