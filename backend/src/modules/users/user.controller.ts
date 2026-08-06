@@ -1,10 +1,6 @@
-import {
-  Request,
-  Response,
-} from "express";
+import {Request,Response,} from "express";
 
-import { asyncHandler }
-from "../../utils/asyncHandler.js";
+import { asyncHandler }from "../../utils/asyncHandler.js";
 
 import * as UserService
 from "./user.service.js";
