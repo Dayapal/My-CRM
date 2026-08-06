@@ -1,8 +1,5 @@
 import bcrypt from "bcryptjs";
-// import { User } from "../auth/user.model.js";
 import { User } from "../users/user.model.js";
-
-
 export const getUsers = async (
   organizationId: string
 ) => {
@@ -10,7 +7,6 @@ export const getUsers = async (
     organization: organizationId,
   }).select("-password");
 };
-
 export const getUserById = async (
   userId: string,
   organizationId: string
@@ -20,16 +16,6 @@ export const getUserById = async (
     organization: organizationId,
   }).select("-password");
 };
-
-// export const createUser = async (
-//   payload: any,
-//   organizationId: string
-// ) => {
-//   return User.create({
-//     ...payload,
-//     organization: organizationId,
-//   });
-// };
 
 export const updateUser = async (
   userId: string,
