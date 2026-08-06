@@ -4,9 +4,7 @@ import {
   getUsers,
   getUser,
   createUser,
-  updateUser,
-  deleteUser,
-} from "./user.controller.js";
+  updateUser,deleteUser,} from "./user.controller.js";
 
 import {
   protect,

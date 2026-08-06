@@ -2,8 +2,7 @@ import {Request,Response,} from "express";
 
 import { asyncHandler }from "../../utils/asyncHandler.js";
 
-import * as UserService
-from "./user.service.js";
+import * as UserService from "./user.service.js";
 
 export const getUsers =
   asyncHandler(
@@ -15,7 +14,6 @@ export const getUsers =
         await UserService.getUsers(
           req.user.organizationId
         );
-
       res.json({
         success: true,
         data: users,
