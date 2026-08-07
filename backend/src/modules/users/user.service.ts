@@ -16,7 +16,6 @@ export const getUserById = async (
     organization: organizationId,
   }).select("-password");
 };
-
 export const updateUser = async (
   userId: string,
   organizationId: string,

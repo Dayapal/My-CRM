@@ -1,11 +1,5 @@
-import {
-  Request,
-  Response,
-} from "express";
-
-import { asyncHandler }
-from "../../utils/asyncHandler.js";
-
+import { Request, Response,} from "express";
+import { asyncHandler }from "../../utils/asyncHandler.js";
 import * as NotificationService
 from "./notification.service.js";
 
