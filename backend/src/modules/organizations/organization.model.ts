@@ -1,5 +1,4 @@
 import mongoose, { Schema, Document } from "mongoose";
-
 export interface IOrganization extends Document {
   name: string;
   slug: string;
@@ -7,7 +6,6 @@ export interface IOrganization extends Document {
   logo?: string;
   isActive: boolean;
 }
-
 const organizationSchema = new Schema<IOrganization>(
   {
     name: {

@@ -1,13 +1,8 @@
-import {
-  Request,
-  Response,
-} from "express";
+import {Request,Response,} from "express";
 
-import { asyncHandler }
-from "../../utils/asyncHandler.js";
+import { asyncHandler }from "../../utils/asyncHandler.js";
 
-import * as SearchService
-from "./search.service.js";
+import * as SearchService from "./search.service.js";
 
 export const globalSearch =
   asyncHandler(
