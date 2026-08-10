@@ -5,16 +5,7 @@ import {validate,} from "../../middleware/validate.middleware.js";
 import {searchSchema,} from "./search.validation.js";
 import {globalSearch,} from "./search.controller.js";
 
-const router =
-  Router();
-
+const router = Router();
 router.use(protect);
-
-
-router.get(
-  "/",
-  validate(searchSchema),
-  globalSearch
-);
-
+router.get("/", validate(searchSchema),globalSearch);
 export default router;
