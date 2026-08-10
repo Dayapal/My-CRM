@@ -3,13 +3,9 @@ import { Contact }from "../contacts/contact.model.js";
 import { Company }from "../companies/company.model.js";
 import { Deal }from "../deals/deal.model.js";
 import { Task }from "../task/task.model.js";
-
 import { Meeting }from "../meetings/meeting.model.js";
-
 import { Note }from "../notes/note.model.js";
-
 import { CRMDocument }from "../documents/document.model.js";
-
 export const globalSearch =
   async (
     organizationId: string,
@@ -22,19 +18,7 @@ export const globalSearch =
         "i"
       );
 
-    const [
-
-      leads,
-
-      contacts,
-
-      companies,
-
-      deals,
-
-      tasks,
-
-      meetings,
+    const [leads,contacts,companies, deals, tasks, meetings,
 
       notes,
 
@@ -48,12 +32,10 @@ export const globalSearch =
           organizationId,
 
         $or: [
-
           {
             firstName:
               regex,
           },
-
           {
             lastName:
               regex,
@@ -66,8 +48,7 @@ export const globalSearch =
 
           {
             phone:
-              regex,
-          },
+              regex,},
 
         ],
 
