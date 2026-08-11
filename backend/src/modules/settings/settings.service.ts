@@ -1,15 +1,10 @@
-import { User }
-from "../users/user.model.js";
-
-import { Organization }
-from "../organizations/organization.model.js";
-
+import { User }from "../users/user.model.js";
+import { Organization }from "../organizations/organization.model.js";
 export const getSettings =
 async (
   userId: string,
   organizationId: string
 ) => {
-
   const user =
     await User.findById(
       userId
