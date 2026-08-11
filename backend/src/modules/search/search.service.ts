@@ -18,13 +18,7 @@ export const globalSearch =
         "i"
       );
 
-    const [leads,contacts,companies, deals, tasks, meetings,
-
-      notes,
-
-      documents,
-
-    ] = await Promise.all([
+    const [leads,contacts,companies, deals, tasks, meetings,notes,documents,] = await Promise.all([
 
       Lead.find({
 
@@ -40,7 +34,6 @@ export const globalSearch =
             lastName:
               regex,
           },
-
           {
             email:
               regex,
