@@ -13,7 +13,6 @@ export default function Navbar() {
           <p className="font-medium">
             Daya Pal
           </p>
-
           <p className="text-xs text-slate-500">
             Owner
           </p>

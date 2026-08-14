@@ -5,12 +5,7 @@ interface KpiCardProps {
   value: string | number;
   icon?: React.ReactNode;
 }
-
-export default function KpiCard({
-  title,
-  value,
-  icon,
-}: KpiCardProps) {
+export default function KpiCard({ title,value,icon,}: KpiCardProps) {
   return (
     <Card className="shadow-sm">
       <CardContent className="flex items-center justify-between p-6">
