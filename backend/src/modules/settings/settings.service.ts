@@ -36,13 +36,11 @@ async (
     }
   );
 };
-
 export const updateOrganization =
 async (
   organizationId: string,
   payload: any
 ) => {
-
   return Organization.findByIdAndUpdate(
     organizationId,
     payload,
