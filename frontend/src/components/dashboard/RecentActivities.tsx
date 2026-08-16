@@ -1,8 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 
-interface Props {
-  activities: any[];
-}
+interface Props { activities: any[];}
 
 export default function RecentActivities({
   activities,
@@ -11,9 +9,7 @@ export default function RecentActivities({
     <Card>
       <CardContent className="p-6">
         <h2 className="mb-4 text-xl font-semibold">
-          Recent Activities
-        </h2>
-
+          Recent Activities</h2>
         <div className="space-y-4">
           {activities.length === 0 ? (
             <p>No activities found</p>

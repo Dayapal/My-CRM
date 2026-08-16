@@ -13,12 +13,10 @@ export default function KpiCard({ title,value,icon,}: KpiCardProps) {
           <p className="text-sm text-muted-foreground">
             {title}
           </p>
-
           <h2 className="mt-2 text-3xl font-bold">
             {value}
           </h2>
         </div>
-
         <div className="rounded-xl bg-slate-100 p-3">
           {icon}
         </div>
