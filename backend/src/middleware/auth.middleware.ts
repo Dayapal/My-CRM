@@ -1,16 +1,6 @@
-import {
-  Request,
-  Response,
-  NextFunction
-} from "express";
-
-import {
-  verifyAccessToken
-} from "../utils/jwt.js";
-
-import {
-  ApiError
-} from "../utils/ApiError.js";
+import {Request,Response,NextFunction} from "express";
+import {verifyAccessToken} from "../utils/jwt.js";
+import {  ApiError} from "../utils/ApiError.js";
 
 export const protect =
   (
